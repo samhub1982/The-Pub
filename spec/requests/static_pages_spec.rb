@@ -2,45 +2,34 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-	describe "Home page" do
+  subject { page }
 
-		it "should have the content 'The Pub'" do
-			visit '/static_pages/home'
-			page.should have_selector('h1', :text => 'The Pub')
-		end
+  describe "Home page" do
+    before { visit root_path }
 
-		it "should have the title 'Home'" do
-			visit '/static_pages/home'
-			page.should have_selector('title',
-												:text => "The Pub | Home")
-		end
-	end
+    it { should have_selector('h1',    text: 'The Pub') }
+    it { should have_selector('title', text: full_title('Home')) }
+  end
 
-	describe "Help page" do
+  describe "Help page" do
+    before { visit help_path }
 
-		it "should have the content 'Help'" do
-			visit '/static_pages/help'
-			page.should have_selector('h1', :text => 'Help')
-		end
+    it { should have_selector('h1',    text: 'Help') }
+    it { should have_selector('title', text: full_title('Help')) }
+  end
 
-		it "should have the title 'Help'" do
-			visit '/static_pages/help'
-			page.should have_selector('title', 
-												:text => "The Pub | Help")
-		end
-	end
+  describe "About page" do
+    before { visit about_path }
 
-	describe "About page" do
+    it { should have_selector('h1',    text: 'About The Pub') }
+    it { should have_selector('title', text: full_title('About us')) }
+  end
 
-		it "should have the content 'About The Pub'" do
-			visit '/static_pages/about'
-			page.should have_selector('h1', :text => 'About The Pub')
-		end
+  describe "Contact page" do
+    before { visit contact_path }
 
-		it "should have the title 'About us'" do
-			visit '/static_pages/about'
-			page.should have_selector('title', 
-												:text => "The Pub | About us")
-		end
-	end
+    it { should have_selector('h1',    text: 'Contact me') }
+    it { should have_selector('title', text: full_title('Contact me')) }
+  end
 end
+

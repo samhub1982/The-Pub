@@ -1,0 +1,105 @@
+$full-width: 800px;
+$background-color: white;
+$link-color: green;
+$visited-link-color: green;
+$hover-link-color: orange;
+
+.container {
+	width: $full_width;
+}
+
+body {
+	background: $background-color;
+}
+
+header {
+	padding-top: 20px;
+
+	img {
+		padding: 1em;
+		background: $background-color;
+	}
+}
+
+section {
+	margin-top: 1em;
+	font-size: 90%;
+	padding: 20px;
+	background: $background-color;
+
+	h1 {
+		font-size: 200%;
+		text-align: center;
+	}
+}
+
+/* Links */
+
+a {
+	color: $link-color;
+	text-decoration: none;
+
+	&:hover {
+		color: $hover-link-color;
+		text-decoration: underline;
+	}
+
+	&:visited {
+		color: $visited-link-color;
+	}
+}
+
+nav {
+	float: none;
+	background-color: lightgrey;
+	padding: 0 0.7em;
+	white-space: nowrap;
+	font-size: 110%;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+
+		li {
+			list-style-type: none;
+			display: inline-block;
+			padding: 0.2em 0;
+
+			a {
+				padding: 0 5px;
+				font-weight: bold;
+
+				&:visited {
+					color: $visited-link-color;
+				}
+
+				&:hover {
+					text-decoration: underline;
+					color: $hover-link-color;
+				}
+			}
+		}
+	}
+}
+
+/* Round corners */
+
+.round {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+/* Footer */
+footer {
+	text-align: center;
+	margin-top: 10px;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+
+	nav {
+		float: none;
+	}
+}
