@@ -27,14 +27,13 @@ header {
 }
 
 section {
-	margin-top: 0;
+	margin-top: 10px;
 	font-size: 90%;
 	padding: 0px;
 	background: $background-color;
 
 	h1 {
 		font-size: 200%;
-		text-align: center;
 	}
 
 	a {
@@ -120,5 +119,73 @@ footer {
 
 	nav {
 		float: none;
+	}
+}
+
+/* User show page */
+
+table.profile {
+	width: 100%;
+	margin-bottom: 0;
+}
+
+td.main {
+	width: 70%;
+	paddding: 1em;
+}
+
+td.sidebar {
+	width: 30%;
+	padding: 1em;
+	vertical-align: top;
+	background: lightgrey;
+}
+
+/* Field settings */
+
+div.field, div.actions {
+	margin-bottom: 10px;
+}
+
+/* Error messages */
+
+.field_with_errors {
+	margin-top: 10px;
+	padding: 2px;
+	background-color: red;
+	display: table;
+
+	label {
+		color: #fff;
+	}
+}
+
+#error_explanation {
+	width: 400px;
+	border: 2px solid red;
+	padding: 7px;
+	padding-bottom: 12px;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+
+	h2 {
+		text-align: left;
+		font-weight: bold;
+		padding: 5px 5px 5px 15px;
+		font-size: 12px;
+		margin: -7px;
+		background-color: #c00;
+		color: #fff;
+	}
+
+	P {
+		color: #333;
+		margin-bottom: 0;
+		padding: 5px;
+	}
+
+	ul li {
+		font-size: 12px;
+		list-style: square;
 	}
 }
