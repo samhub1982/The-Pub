@@ -1,8 +1,8 @@
 <% provide :title, "Update" %>
-<h1>Update your settings and profile</h1>
+<center><h1>Update your settings and profile</h1></center>
 
 <%= form_for(@user) do |f| %>
-	<%= render 'shared/error_messages' %>
+	<%= render 'shared/error_messages', object: f.object %>
 	<table class="forms">
 	<tr>
 	<td class="forms">
@@ -51,7 +51,7 @@
 		<%= f.password_field :password_confirmation %>
 	</div>
 	</center>
-	<div class="actions">
+	<center><div class="actions">
 		<%= f.submit "Update" %>
-	</div>
+	</div></center>
 <% end %>

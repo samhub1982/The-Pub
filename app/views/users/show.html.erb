@@ -26,7 +26,12 @@
 <table class="feedtabletest">
 	<tr>
 		<td class="feedtest">
-			This is a test to see where the text goes for the feed.
+			<% if @user.microposts.any? %>
+				<table class="microposts">
+					<%= render @microposts %>
+				</table>
+				<%= will_paginate @microposts %>
+			<% end %>
 		</td>
 	</tr>
 </table>
