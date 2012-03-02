@@ -18,6 +18,7 @@ header {
 	img {
 		padding: 0;
 		background: $background-color;
+		margin-top: -10px;
 	}
 
 	h3 {
@@ -28,12 +29,13 @@ header {
 
 section {
 	margin-top: 10px;
-	font-size: 90%;
+	font-size: 110%;
 	padding: 0px;
 	background: $background-color;
 
 	h1 {
 		font-size: 200%;
+		text-align: center;
 	}
 
 	a {
@@ -43,10 +45,6 @@ section {
 		&:hover {
 			color: $hover-link-color;
 			text-decoration: underline;
-		}
-
-		&:visited {
-			color: $visited-link-color;
 		}
 	}
 }
@@ -127,24 +125,74 @@ footer {
 table.profile {
 	width: 100%;
 	margin-bottom: 0;
+
+	h1 {
+		vertical-align: top;
+		margin-top: -10px;
+		text-align: left;
+		margin-bottom: 0px;
+		font-size: 24px;
+	}
 }
 
 td.main {
-	width: 70%;
-	paddding: 1em;
+	width: 80%;
+	padding: 1em;
+	vertical-align: top;
+}
+
+td.image {
+	vertical-align: top;
 }
 
 td.sidebar {
-	width: 30%;
+	width: 20%;
 	padding: 1em;
 	vertical-align: top;
+	text-align: center;
 	background: lightgrey;
+}
+
+table.feedtabletest {
+	width: 100%;
+	margin-top: 5px;
+	background: lightblue;
+}
+
+td.feedtest {
+	width: 800px;
+	padding: 1em;
+	vertical-align: top;
 }
 
 /* Field settings */
 
-div.field, div.actions {
+div.field {
 	margin-bottom: 10px;
+
+	textarea {
+		height: 4em;
+		width: 35em;
+	}
+}
+
+div.actions {
+	text-align: center;
+}
+
+table.forms {
+	width: 800px;
+	background: white;
+
+	tr {
+		background: white;
+	}
+
+	td.forms {
+		width: 400px;
+		vertical-align: top;
+		background: white;
+	}
 }
 
 /* Error messages */
@@ -199,3 +247,4 @@ ul.users {
 		list-style: none;
 	}
 }
+

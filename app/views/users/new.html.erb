@@ -1,25 +1,59 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide :title, "Sign up" %>
+<h1>Sign up for The Pub</h1>
+<strong>
+	Already have an account? <%= link_to "Sign in", signin_path %>
+</strong>
 
 <%= form_for(@user) do |f| %>
 	<%= render 'shared/error_messages' %>
+	<table class="forms">
+	<tr>
+	<td class="forms">
 	<div class="field">
-		<%= f.label :name %><br />
+		<%= f.label :name, "Name (First and Last)" %><br />
 		<%= f.text_field :name %>
 	</div>
 	<div class="field">
-		<%= f.label :email %><br />
+		<%= f.label :email, "E-mail address" %><br />
 		<%= f.text_field :email %>
 	</div>
+	<div class="field">
+		<%= f.label :location, "Location (City, State)" %><br />
+		<%= f.text_field :location %>
+	</div>
+	<div class="field">
+		<%= f.label :birthday, "Birthday (format: MM/DD/YYYY)" %><br />
+		<%= f.text_field :birthday %>
+	</div>
+	</td>
+	<td class="forms">
+	<div class="field">
+		<%= f.label :avatar, "Avatar (Profile Picture)" %><br />
+		<%= f.file_field :avatar %>
+	</div>
+	<div class="field">
+		<%= f.label :about, "A brief statement about you" %><br />
+		<%= f.text_area :about %>
+	</div>
+	<div class="field">
+		<%= f.label :hobbies, "Your hobbies" %><br />
+		<%= f.text_area :hobbies %>
+	</div>
+	</td>
+	</tr>
+	</table>
+	<center>
 	<div class="field">
 		<%= f.label :password %><br />
 		<%= f.password_field :password %>
 	</div>
 	<div class="field">
-		<%= f.label :password_confirmation, "Confirmation" %><br />
+		<%= f.label :password_confirmation, "Password Confirmation" %><br />
 		<%= f.password_field :password_confirmation %>
 	</div>
+	</center>
 	<div class="actions">
-		<%= f.submit "Sign up" %>
+		<%= f.submit "Create account" %>
 	</div>
 <% end %>
+

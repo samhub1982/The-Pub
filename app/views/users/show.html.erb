@@ -1,12 +1,32 @@
 <% provide :title, @user.name %>
 <table class="profile">
-	<tr>
+	<tr class="profile">
+		<% unless @user.avatar_file_name == nil %>
+		<td class="image">
+			<% user_image = image_tag @user.avatar.url(:medium) %>
+			<%= link_to user_image, '#' %>	
+		</td>
+		<% end %>
 		<td class="main">
-			<h1><%= @user.name %></h1>
+			<h1>
+				<%= @user.name %><br />
+			</h1>
+				<strong>Location</strong>: <%= @user.location %> | 
+				<strong>Birthday</strong>: <%= @user.birthday %><br />
+				<strong>About me</strong>: <%= @user.about %><br />
+				<strong>Hobbies</strong>: <%= @user.hobbies %>
 		</td>
 		<td class="sidebar round">
-			<strong>Name</strong> <%= @user.name %><br />
-			<strong>URL</strong> <%= link_to user_path(@user), @user %>
+			<strong><%= link_to 'Photos', '#' %></strong><br />
+			<strong><%= link_to 'Private Message', '#' %></strong><br />
+			<strong><%= link_to 'Other links', '#' %></strong>
+		</td>
+	</tr>
+</table>
+<table class="feedtabletest">
+	<tr>
+		<td class="feedtest">
+			This is a test to see where the text goes for the feed.
 		</td>
 	</tr>
 </table>

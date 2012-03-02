@@ -10,10 +10,10 @@
 #
 
 class User < ActiveRecord::Base
-	attr_accessible :name, :email, :password, :password_confirmation
+	attr_accessible :name, :email, :password, :password_confirmation, :avatar, :location, :birthday, :about, :hobbies
 	has_secure_password
+	has_attached_file :avatar, styles: { small: "150x150>", medium: "150x150>", large: "500x500>", thumb: "75x75#" }
 	before_save :create_remember_token
-
 	validates :name, presence: true, length: { maximum: 50 }
 	valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, 
