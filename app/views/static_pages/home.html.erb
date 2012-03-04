@@ -5,13 +5,13 @@
 			<td class="main">
 				<h1 class="micropost">Update status:</h1>
 				<%= render 'shared/micropost_form' %>
-				<%= render 'shared/feed' %>
 			</td>
 			<td class="sidebar round">
-				Figure out what I want here.
+				<%= render 'shared/stats' %>
 			</td>
 		</tr>
 	</table>
+	<%= render 'shared/feed' %>
 <% else %>
 	<h1>The Pub</h1>
 	<p>

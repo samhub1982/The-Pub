@@ -2,17 +2,15 @@
 	<%= image_tag("logo.png", alt: "The Pub") %><br />
 	<nav>
 		<ul>
-			<li><%= link_to "Home", root_path %></li>
 			<% if signed_in? %>
-				<li><%= link_to "Users", users_path %></li>
+				<li><%= link_to "Status Feed", root_path %></li>
+				<li><%= link_to "Members", users_path %></li>
 				<li><%= link_to "Profile", current_user %></li>
 				<li><%= link_to "Settings", edit_user_path(current_user) %></li>
-			<% end %>
-			<li><%= link_to "Help", help_path %></li>
-			<% if signed_in? %>
 				<li><%= link_to "Sign out", signout_path, method: :delete %>
 			<% else %>
-				<li><%= link_to "Sign in", signin_path %><li>
+				<li><%= link_to "Sign in", signin_path %></li>
+				<li><%= link_to "Sign up", signup_path %></li>
 			<% end %>
 		</ul>
 	</nav>

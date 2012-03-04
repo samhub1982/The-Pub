@@ -8,6 +8,7 @@
 		</td>
 		<% end %>
 		<td class="main">
+			<%= render 'follow_form' if signed_in? %><br />
 			<h1>
 				<%= @user.name %><br />
 			</h1>
