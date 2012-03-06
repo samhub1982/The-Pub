@@ -4,7 +4,8 @@ gem 'rails', '3.2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
-gem 'paperclip', '~> 2.0'
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development do
 	gem 'sqlite3'

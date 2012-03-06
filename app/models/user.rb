@@ -14,11 +14,10 @@ class User < ActiveRecord::Base
 									:email, 
 									:password, 
 									:password_confirmation, 
-									:avatar, 
 									:location, 
 									:birthday, 
 									:about, 
-									:hobbies
+									:hobbies,
 	has_secure_password
 	has_many :microposts, dependent: :destroy
 	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -27,13 +26,6 @@ class User < ActiveRecord::Base
 																	 class_name: "Relationship",
 																	 dependent: :destroy
 	has_many :followers, through: :reverse_relationships, source: :follower
-	has_attached_file :avatar, styles: { small: "150x150>", 
-																			 medium: "150x150>", 
-																			 large: "500x500>", 
-																			 thumb: "75x75#" },
-																			 processors: [:cropper]
-	attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-	after_update :reprocess_avatar, :if => :cropping?
 	before_save :create_remember_token
 	validates :name, presence: true, length: { maximum: 50 }
 	valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -41,6 +33,8 @@ class User < ActiveRecord::Base
 										format: { with: valid_email_regex },
 										uniqueness: { case_sensitive: false }
 	validates :password, length: { minimum: 6 }
+	valid_birthday_regex = /^(0[1-9]|1[012])[\/](0[1-9]|[12][0-9]|3[01])[\/][0-9]{4}$/
+	validates :birthday, format: { with: valid_birthday_regex }
 
 	default_scope order: 'users.name'
 
@@ -60,22 +54,9 @@ class User < ActiveRecord::Base
 		relationships.find_by_followed_id(other_user.id).destroy
 	end
 
-	def cropping?
-		!crop_x.blank? && !crop_y.blank? && crop_w.blank? && !crop_h.blank?
-	end
-
-	def avatar_geometry(style = :original)
-		@geometry ||= {}
-		@geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
-	end
-
 	private
 
 		def create_remember_token
 			self.remember_token = SecureRandom.urlsafe_base64
-		end
-
-		def reprocess_avatar
-			avatar.reprocess!
 		end
 end

@@ -1,7 +1,7 @@
 <% provide :title, "Update" %>
 <center><h1>Update your settings and profile</h1></center>
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => { :multipart => true } do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<table class="forms">
 	<tr>

@@ -1,12 +1,9 @@
 <% provide :title, @user.name %>
 <table class="profile">
 	<tr class="profile">
-		<% unless @user.avatar_file_name == nil %>
 		<td class="image">
-			<% user_image = image_tag @user.avatar.url(:medium) %>
-			<%= link_to user_image, '#' %>	
+			# 
 		</td>
-		<% end %>
 		<td class="main">
 			<%= render 'follow_form' if signed_in? %><br />
 			<h1>
