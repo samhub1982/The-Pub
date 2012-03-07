@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 									:birthday, 
 									:about, 
 									:hobbies,
+									:image
 	has_secure_password
 	has_many :microposts, dependent: :destroy
 	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -26,6 +27,7 @@ class User < ActiveRecord::Base
 																	 class_name: "Relationship",
 																	 dependent: :destroy
 	has_many :followers, through: :reverse_relationships, source: :follower
+	mount_uploader :image, ImageUploader
 	before_save :create_remember_token
 	validates :name, presence: true, length: { maximum: 50 }
 	valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -37,11 +37,7 @@ class UsersController < ApplicationController
 		if @user.update_attributes(params[:user])
 			flash[:success] = "Settings updated"
 			sign_in @user
-			if params[:user][:avatar].blank?
-				redirect_to @user
-			else
-				render action: 'crop'
-			end
+			redirect_to @user
 		else
 			render 'edit'
 		end

@@ -2,7 +2,7 @@
 <table class="profile">
 	<tr class="profile">
 		<td class="image">
-			# 
+			<%= image_tag @user.image_url.to_s %> 
 		</td>
 		<td class="main">
 			<%= render 'follow_form' if signed_in? %><br />
