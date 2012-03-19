@@ -2,11 +2,20 @@
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id              :integer         not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean         default(FALSE)
+#  location        :string(255)
+#  birthday        :string(255)
+#  about           :string(255)
+#  hobbies         :string(255)
+#  image           :string(255)
+#  username        :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -18,7 +27,8 @@ class User < ActiveRecord::Base
 									:birthday, 
 									:about, 
 									:hobbies,
-									:image
+									:image,
+									:username
 	has_secure_password
 	has_many :microposts, dependent: :destroy
 	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -37,6 +47,11 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 6 }
 	valid_birthday_regex = /^(0[1-9]|1[012])[\/](0[1-9]|[12][0-9]|3[01])[\/][0-9]{4}$/
 	validates :birthday, format: { with: valid_birthday_regex }
+	valid_username_regex = /^[a-z]\w*[a-z0-9]$/i
+	validates :username, presence: true,
+											 format: { with: valid_username_regex },
+											 uniqueness: { case_sensitive: false },
+											 length: { minimum: 4 }
 
 	default_scope order: 'users.name'
 

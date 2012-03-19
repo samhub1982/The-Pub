@@ -2,12 +2,12 @@
 <table class="profile">
 	<tr class="profile">
 		<td class="image">
-			<%= image_tag @user.image_url.to_s %> 
+			<%= image_tag @user.image_url(:profile).to_s %> 
 		</td>
 		<td class="main">
 			<%= render 'follow_form' if signed_in? %><br />
 			<h1>
-				<%= @user.name %><br />
+				<%= @user.name %><i> (@<%= @user.username %>)</i><br />
 			</h1>
 				<strong>Location</strong>: <%= @user.location %> | 
 				<strong>Birthday</strong>: <%= @user.birthday %><br />
